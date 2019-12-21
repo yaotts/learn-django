@@ -78,9 +78,9 @@ import pymysql
 pymysql.install_as_MySQLdb()      
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql', 
         'NAME':'poll_database',
-        'USER':'yao',
+        'USER':'yao2',
         'PASSWORD':'789451',
         'HOST':'192.168.1.119',
         'PORT':'3306',
