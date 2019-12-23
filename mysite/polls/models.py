@@ -12,6 +12,10 @@ class Question(models.Model):
 
     def pub_recently(self):
         return timezone.now() >= self.pub_date >= timezone.now()- datetime.timedelta(days=1)
+    
+    pub_recently.admin_order_field('pub_date')
+    pub_recently.boolean = True
+    pub_recently.short_description = 'Published recently?'
 
 class Choice(models.Model):
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
