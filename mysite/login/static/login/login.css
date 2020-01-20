@@ -1,0 +1,22 @@
+div.container {
+    position: fixed;
+    left: 560px ;
+    right: 560px;
+    top: 120px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0px;
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+}
+.form-login {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+form a {
+    display: inline-block;
+    margin-top: 10px;
+
+}

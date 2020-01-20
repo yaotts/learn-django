@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title%}Yaolp的个人网站{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    {% block style %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Yaolp的个人网站</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">随笔</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">学习笔记</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'polls:index' %}" tabindex="0">
+                        <!-- aria-disabled="true"-->其他</a>
+                </li>
+            </ul>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">{{ request.session.user_name }}</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">设置</a>
+                    <a class="dropdown-item" href="{% url 'login:logout' %}">注销</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar">
+        {% block sidebar %}
+        {% endblock%}
+    </div>
+    <div id="content">
+        {% block content %}
+        <p>Nothing.</p>
+        {% endblock %}
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/esm/popper-utils.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

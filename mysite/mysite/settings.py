@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['192.168.1.107','127.0.0.1']
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,9 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME':'poll_database',
-        'USER':'yao2',
-        'PASSWORD':'789451',
-        'HOST':'192.168.1.119',
+        'USER':'root',
+        'PASSWORD':'yao789451',
+        'HOST':'192.168.1.6',
         'PORT':'3306',
 
     }
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -119,7 +120,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
