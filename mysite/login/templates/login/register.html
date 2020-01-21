@@ -1,16 +1,41 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>注册</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <p>This is the page for register.</p>
-    </body>
-</html>
+{% extends "base_logout.html" %}
+{% load static %}
+
+{% block title %}注册{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'login/login.css'%}">{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form class="form-login" action="{% url 'login:register' %}" method="post">
+        {% csrf_token %}
+        {% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+        {% endif %}
+        <h3 class="text-center">欢迎注册</h3>
+        <div class="form-group">
+            <label for="id_email">邮箱地址：</label>
+            <input class="form-control" type="email" id="id_email" name="email" placeholder="name@example.com" autofocus required>
+            <small id="emailhelp" class="form-text text-muted">仅作为注册验证使用，请放心填写</small>
+        </div>
+        <div class="form-group">
+            <label for="id_username">用户名：</label>
+            <input class="form-control" type="text" id="id_username" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="id_password1">密码：</label>
+            <input class="form-control" type="password" id="id_password1" name="password1" placeholder="Password"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="id_password2">确认密码：</label>
+            <input class="form-control" type="password" id="id_password2" name="password2" placeholder="Confirm Password" required>
+        </div>
+        <div>
+            <a class="text-info" href="{% url 'login:login' %}"><ins>去登陆</ins></a>
+            <button type="submit" class="btn btn-primary float-right">注册</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
