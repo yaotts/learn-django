@@ -128,3 +128,9 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+#邮件发送参数
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '835548994@qq.com'
+EMAIL_HOST_PASSWORD = 'gqgiuildcktdbeii'
