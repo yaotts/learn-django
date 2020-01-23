@@ -134,3 +134,4 @@ EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = '835548994@qq.com'
 EMAIL_HOST_PASSWORD = 'gqgiuildcktdbeii'
+CONFIRM_DAYS = 2
