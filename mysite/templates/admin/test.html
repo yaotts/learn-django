@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-        <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    </head>
-    <body>
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small>11 mins ago</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Hello, world! This is a toast message.
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title%}Yaolp的个人网站{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    {% block style %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Yaolp的个人网站</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">随笔</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">学习笔记</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'polls:index' %}" tabindex="0">
+                        <!-- aria-disabled="true"-->其他</a>
+                </li>
+            </ul>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">用户</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'login:login' %}">登陆</a>
+                    <a class="dropdown-item" href="{% url 'login:register' %}">注册</a>
+                    <a class="dropdown-item" href="{% url 'login:logout' %}">注销</a>
+                </div>
             </div>
         </div>
-        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
-        <script src="https://cdn.bootcss.com/popper.js/1.15.0/esm/popper-utils.min.js"></script>
-        <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
-    </body>
+    </nav>
+    <div id="sidebar">
+        {% block sidebar %}
+        {% endblock%}
+    </div>
+    <div id="content">
+        {% block content %}
+        <button type="button" class="close" aria-label="关闭">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {% endblock %}
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/esm/popper-utils.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
 </html>
