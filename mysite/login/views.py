@@ -26,9 +26,8 @@ def send_email(recipient,name):
     text_content = '如果您看到此信息，说明您的邮箱不支持HTML文档，请开启后重新注册。'
     html_content = '''
     <p>您好，</p>
-    <p>这是一封注册确认邮件，您正在使用此邮箱注册‘Yaolp的个人网站’。</p>
-    <p>请点击<a href="http://{}/accounts/confirm/?name={}" target=_blank>部署后的网站地址</a>来确认您的注册。</p>
-    <p>此链接有效期为{}天。</p>'''.format('127.0.0.1:8000',name,settings.CONFIRM_DAYS)
+    <p style="text-indent:32px;">这是一封注册确认邮件，您正在使用此邮箱注册‘Yaolp的个人网站’。请<a href="http://{}/accounts/confirm/?name={}" target=_blank>点击此处</a>来完成您的注册。</p>
+    <p style="text-indent:32px;">此链接有效期为{}天。</p>'''.format('127.0.0.1:8000',name,settings.CONFIRM_DAYS)
 
     msg = EmailMultiAlternatives(subject=subject,body=text_content,from_email=sender,to=[recipient])
     msg.attach_alternative(html_content,"text/html")
@@ -114,7 +113,6 @@ def logout(request):
 
 def confirm(request):
     name = request.GET.get('name',None)
-    print(name)
     try:
         user = models.User.objects.get(name=name)
     except:

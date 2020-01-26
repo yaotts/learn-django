@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <style type="text/css">
         html,body {
-            height: 100%;
+            height: 95%;         
         }
         .content {
             padding-bottom: 30px;
@@ -71,9 +71,11 @@
             {% block sidebar %}
             {% endblock%}
         </div>
+        <div class="content">
             {% block content %}
                 <p>Nothing.</p>
             {% endblock %}
+        </div>
     </div>
     <footer class="footer">
         <p>Yaolp的个人网站 | 2020  <a href="#">部署后的备案号</a></p>

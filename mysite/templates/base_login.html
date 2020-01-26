@@ -7,6 +7,33 @@
     <title>{% block title%}Yaolp的个人网站{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+    
+        .content {
+            padding-bottom: 30px;
+            overflow: hidden;
+        }
+    
+        .wrap {
+            min-height: 100%;
+    
+        }
+    
+        .footer {
+            margin-top: -30px;
+            height: 30px;
+        }
+    
+        .footer p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
     {% block style %}{% endblock %}
 </head>
 
@@ -52,10 +79,9 @@
         <p>Nothing.</p>
         {% endblock %}
     </div>
-    <footer class="footer mt-auto py-3">
-        <div class="container">
-            <span class="text-muted">Yaolp的个人网站.</span>
-        </div>
+    <footer class="footer">
+        <p>Yaolp的个人网站 | 2020 <a href="#">部署后的备案号</a></p>
+        <p>一些其他文字</p>
     </footer>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.15.0/esm/popper-utils.min.js"></script>

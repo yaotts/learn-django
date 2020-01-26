@@ -4,10 +4,38 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title%}Yaolp的个人网站{% endblock %}</title>
+    <title>Yaolp的个人网站</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <style type="text/css">
+        html,
+        body {
+            height: 95%;
+        }
+
+        .content {
+            padding-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .wrap {
+            min-height: 100%;
+
+        }
+
+        .footer {
+            margin-top: -30px;
+            height: 30px;
+        }
+
+        .footer p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
     {% block style %}{% endblock %}
+
 </head>
 
 <body>
@@ -44,17 +72,37 @@
             </div>
         </div>
     </nav>
-    <div id="sidebar">
-        {% block sidebar %}
-        {% endblock%}
+    <div class="wrap">
+        <div class="sidebar">
+            {% block sidebar %}
+            {% endblock%}
+        </div>
+        <div class="content">
+            <div class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Modal body text goes here.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="content">
-        {% block content %}
-        <button type="button" class="close" aria-label="关闭">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        {% endblock %}
-    </div>
+    <footer class="footer">
+        <p>Yaolp的个人网站 | 2020  <a href="#">部署后的备案号</a></p>
+        <p>一些其他文字</p>
+    </footer>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.15.0/esm/popper-utils.min.js"></script>
     <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
